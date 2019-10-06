@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_013432) do
+ActiveRecord::Schema.define(version: 2019_10_05_224207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -266,6 +266,9 @@ ActiveRecord::Schema.define(version: 2019_08_21_013432) do
     t.boolean "banned", default: false
     t.boolean "admin", default: false
     t.text "third_party_avatar"
+    t.boolean "export_request", default: false
+    t.boolean "export_available", default: false
+    t.date "data_requested_on"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
