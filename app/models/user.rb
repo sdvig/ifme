@@ -142,11 +142,12 @@ class User < ApplicationRecord
 
   private
   def download_request
-    if export_request_changed?
-      puts "run"
-      Rails.application.load_tasks
-      Rake::Task['data_export:Add'].invoke
-    end
+
+    #TODO make decision on how this should be run
+    require 'rake'
+    Rails.application.load_tasks
+    Rake::Task['data_export:Add'].invoke
+
   end
   def google_access_token_expired?
     !access_expires_at || Time.zone.now > access_expires_at
